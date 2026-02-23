@@ -49,8 +49,8 @@ print(f'================== Results end ======================================')
 # ---- Write metrics to HBase with happybase (using the provided pattern) ----
 # Example data (row_key, column_family:column, value) populated with the metrics
 data = [
-    ('metrics1', 'model_results:algorithm', 'RandomForest'),
-    ('metrics1', 'model_results:auc_score', str(auc).encode('utf-8')),
+    ('metrics1 :', 'model_results:algorithm', 'RandomForest'),
+    ('metrics1 :', 'model_results:auc_score', str(auc))
 ]
 
 
