@@ -1,8 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.regression import LinearRegression
-from pyspark.ml.classification import RandomForestClassifier
-from pyspark.ml.evaluation import BinaryClassificationEvaluator
 import happybase
 
 # Step 1: Create a Spark session
@@ -36,10 +34,11 @@ print(f'================== RFM End======================================')
 predictions = model.transform(test_data)
 evaluator = BinaryClassificationEvaluator(labelCol="Fraud_Label", metricName="areaUnderROC")
 auc = evaluator.evaluate(predictions)
-
+print(f'================== Predictions and Evaluation End======================================')
 # Step 8: Print the model performance metrics
 print(f"model_results:algorithm {'RandomForest'}")
 print(f"model_results:auc_score: {str(auc).encode('utf-8')}")
+print(f'================== Results end ======================================')
 
 # ---- Write metrics to HBase with happybase (using the provided pattern) ----
 # Example data (row_key, column_family:column, value) populated with the metrics
