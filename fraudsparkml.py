@@ -16,8 +16,8 @@ fraud_df = fraud_df.na.drop()  # Drop rows with null values
 
 # Feature Engineering
 # Selecting numerical columns for the model
-feature_cols = ["Transaction_Amount", "Account_Balance", "Daily_Transaction_Count",
-                "Avg_Transaction_Amount_7d", "Risk_Score", "Transaction_Distance"]
+feature_cols = ["transaction_amount", "account_balance", "daily_transaction_count",
+                "avg_transaction_amount_7d", "risk_score", "transaction_distance"]
 
 assembler = VectorAssembler(inputCols=feature_cols, outputCol="features")
 final_data = assembler.transform(fraud_df).select("features", "Fraud_Label")
