@@ -2,6 +2,12 @@ from pyspark.sql import SparkSession
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.regression import LinearRegression
 import happybase
+from pyspark.sql import SparkSession
+from pyspark.ml.feature import VectorAssembler, StringIndexer
+from pyspark.ml.classification import RandomForestClassifier
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+import happybase
+import datetime
 
 # Step 1: Create a Spark session
 spark = SparkSession.builder.appName("MLlib FraudML Prediction").enableHiveSupport().getOrCreate()
